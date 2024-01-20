@@ -13,6 +13,7 @@
     <x-header></x-header>
     <div class="container">
         <h2>Добро пожаловать!</h2>
+        
     </div>
 </body>
 </html>
