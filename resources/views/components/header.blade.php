@@ -7,16 +7,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/about">Регистрация</a>
+            <a class="nav-link" href="/reg">Регистрация</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Авторизация</a>
+            <a class="nav-link" href="/auth">Авторизация</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Мои видеоролики</a>
+            <a class="nav-link" href="/profile">Мои видеоролики</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Выход</a>
+            <a class="nav-link" href="/logout">Выход</a>
           </li>
         </ul>
       </div>

@@ -17,3 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/reg', function () {
+    return view('reg');
+});
+
+Route::get('/auth', function () {
+    return view('auth');
+});

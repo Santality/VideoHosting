@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title_role');
         });
 
-        Artisan::call([RoleSeeder::class]);
+        Artisan::call('db:seed', ['--class'=>RoleSeeder::class]);
     }
 
     /**
