@@ -13,7 +13,8 @@
     <x-header></x-header>
     <div class="container">
         <h2>Регистрация</h2>
-        <form method="POST" action="">
+        <form method="POST" action="/registration">
+            @csrf
             <div class="mb-3">
               <label for="InputName" class="form-label">Никнейм</label>
               <input type="text" class="form-control" id="InputName" name="name">

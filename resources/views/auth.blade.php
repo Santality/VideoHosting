@@ -13,7 +13,8 @@
     <x-header></x-header>
     <div class="container">
         <h2>Авторизация</h2>
-        <form method="POST" action="">
+        <form method="POST" action="/authentication">
+            @csrf
             <div class="mb-3">
                 <label for="InputEmail" class="form-label">Почта</label>
                 <input type="email" class="form-control" id="InputEmail" name="email">

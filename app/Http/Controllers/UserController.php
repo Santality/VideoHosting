@@ -13,7 +13,7 @@ class UserController extends Controller
     public function signup(Request $request){
         $user = User::create([
             'name'=>$request['name'],
-            'email'=>$request[''],
+            'email'=>$request['email'],
             'password'=>Hash::make($request['password']),
             'id_role'=>2,
         ]);
@@ -25,5 +25,18 @@ class UserController extends Controller
         Session::flush();
         Auth::logout();
         return redirect('/');
+    }
+
+    public function signin(Request $request){
+        if(Auth::attempt([
+            'email'=>$request['email'],
+            'password'=>$request['password'],
+        ])){
+            if(Auth::user()->id_role == 1){
+                return redirect('/admin');
+            }else{
+                return redirect('/');
+            }
+        }
     }
 }
