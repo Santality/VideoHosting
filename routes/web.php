@@ -35,3 +35,6 @@ Route::post('/authentication', [UserController::class, 'signin']);
 Route::get('/admin', function () {
     return view('admin.index');
 });
+
+Route::get('/profile', [UserController::class, 'profile']);
+
