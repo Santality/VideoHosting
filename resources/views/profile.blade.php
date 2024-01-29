@@ -12,7 +12,7 @@
 <body>
     <x-header></x-header>
     <div class="container">
-        <a class="btn btn-primary mt-3" href="">Создать видеоролик</a>
+        <a class="btn btn-primary mt-3" href="/createPage">Создать видеоролик</a>
         <h2>Мои видеоролики</h2>
     </div>
 </body>

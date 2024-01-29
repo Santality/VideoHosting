@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->string('file_name');
             $table->foreignId('category')->references('id')->on('categories');
             $table->foreignId('limit')->references('id')->on('limits');
             $table->timestamps();

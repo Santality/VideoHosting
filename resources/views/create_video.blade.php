@@ -12,8 +12,32 @@
 <body>
     <x-header></x-header>
     <div class="container">
-        <a class="btn btn-primary mt-3" href="">Создать видеоролик</a>
-        <h2>Мои видеоролики</h2>
+        <a class="btn btn-primary mt-3" href="/profile">Назад</a>
+        <h2>Загрузить видеоролик</h2>
+        <form action="/create" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="InputTitle" class="form-label">Название</label>
+              <input type="text" class="form-control" id="InputTitle" name="title">
+            </div>
+            <div class="mb-3">
+              <label for="InputDescription" class="form-label">Описание</label>
+              <input type="text" class="form-control" id="InputDescription" name="description">
+            </div>
+            <div class="mb-3">
+                <label for="InputFile" class="form-label">Файл</label>
+                <input type="file" class="form-control" id="InputFile" name="file">
+            </div>
+            <div class="mb-3">
+                <label for="InputCategory" class="form-label">Категория</label>
+                <select id="InputCategory" class="form-select" name="category">
+                    <option selected>Выберите категорию</option>
+                    @foreach ($data as $cat)
+                        <option value="{{$cat->id}}">{{$cat->title_category}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
     </div>
 </body>
 </html>

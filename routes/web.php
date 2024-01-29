@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +39,6 @@ Route::get('/admin', function () {
 
 Route::get('/profile', [UserController::class, 'profile']);
 
+Route::get('/createPage', [VideoController::class, 'createPage']);
+
+Route::post('/create', [VideoController::class, 'create']);
