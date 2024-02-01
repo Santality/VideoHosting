@@ -14,6 +14,34 @@
     <div class="container">
         <a class="btn btn-primary mt-3" href="/createPage">Создать видеоролик</a>
         <h2>Мои видеоролики</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Название</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Превью</th>
+                <th scope="col">Категория</th>
+                <th scope="col">Дата загрузки</th>
+              </tr>
+            </thead>
+            <tbody>
+                @forelse ($collection as $item)
+                <tr>
+                    <td></td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                </tr>
+                @empty
+                    <td>У вас пока нет видеороликов</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

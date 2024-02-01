@@ -15,6 +15,7 @@
         <a class="btn btn-primary mt-3" href="/profile">Назад</a>
         <h2>Загрузить видеоролик</h2>
         <form action="/create" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="mb-3">
               <label for="InputTitle" class="form-label">Название</label>
               <input type="text" class="form-control" id="InputTitle" name="title">
@@ -26,6 +27,10 @@
             <div class="mb-3">
                 <label for="InputFile" class="form-label">Файл</label>
                 <input type="file" class="form-control" id="InputFile" name="file">
+            </div>
+            <div class="mb-3">
+                <label for="InputCover" class="form-label">Превью</label>
+                <input type="file" class="form-control" id="InputCover" name="cover">
             </div>
             <div class="mb-3">
                 <label for="InputCategory" class="form-label">Категория</label>
