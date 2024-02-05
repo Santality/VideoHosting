@@ -59,28 +59,52 @@ class VideoController extends Controller
     }
 
     public function like($id){
-        if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
-            $res = Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
-            return response()->json(['lis' => true]);
+        if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+            Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
+            if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                return redirect()->back();
+            }else{
+                Like::create([
+                    'id_user' => Auth::user()->id,
+                    'id_video' => $id,
+                ]);
+                return redirect()->back();
+            }
         }else{
-            Like::create([
-                'id_user' => Auth::user()->id,
-                'id_video' => $id,
-            ]);
-            return response()->json(['las' => true]);
+            if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                return redirect()->back();
+            }else{
+                Like::create([
+                    'id_user' => Auth::user()->id,
+                    'id_video' => $id,
+                ]);
+                return redirect()->back();
+            }
         }
     }
 
     public function dislike($id){
-        if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
-            $res = Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
-            return response()->json(['dis' => true]);
+        if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+            Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
+            if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                return redirect()->back();
+            }else{
+                Dislike::create([
+                    'id_user' => Auth::user()->id,
+                    'id_video' => $id,
+                ]);
+                return redirect()->back();
+            }
         }else{
-            Dislike::create([
-                'id_user' => Auth::user()->id,
-                'id_video' => $id,
-            ]);
-            return response()->json(['das' => true]);
+            if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                return redirect()->back();
+            }else{
+                Dislike::create([
+                    'id_user' => Auth::user()->id,
+                    'id_video' => $id,
+                ]);
+                return redirect()->back();
+            }
         }
     }
 }

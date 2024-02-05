@@ -15,4 +15,9 @@ class Like extends Model
     ];
 
     public $timestamps = false;
+
+    public function vid_lik()
+    {
+        return $this->hasMany(Video::class, 'id_video');
+    }
 }

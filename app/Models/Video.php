@@ -28,4 +28,14 @@ class Video extends Model
     {
         return $this->belongsTo(Limit::class, 'limit');
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'id_video');
+    }
+
+    public function dislikes()
+    {
+        return $this->hasMany(Dislike::class, 'id_video');
+    }
 }
