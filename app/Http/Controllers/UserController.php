@@ -44,8 +44,7 @@ class UserController extends Controller
     }
 
     public function profile(){
-        $data = Video::with('category_vid', 'limit_vid', 'likes')->where('user', Auth::user()->id)->paginate(2);
-        $id = Video::Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists();
-        return view('profile', ['data' => $data, 'likes' => $likes, 'dislikes' => $dislikes]);
+        $data = Video::with('category_vid', 'limit_vid')->where('user', Auth::user()->id)->orWhere([['limit', 1],['limit', 2],['limit', 3]])->paginate(2);
+        return view('profile', ['data' => $data,]);
     }
 }

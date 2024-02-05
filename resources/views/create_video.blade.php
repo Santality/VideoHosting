@@ -25,8 +25,8 @@
               <input type="text" class="form-control" id="InputDescription" name="description" required>
             </div>
             <div class="mb-3">
-                <label for="InputFile" class="form-label">Файл</label>
-                <input type="file" class="form-control" id="InputFile" name="file" required>
+                <label for="InputFile" class="form-label">Видеоролик</label>
+                <input type="file" class="form-control" id="InputFile" name="file" accept=".mp4" required>
             </div>
             <div class="mb-3">
                 <label for="InputCover" class="form-label">Превью</label>

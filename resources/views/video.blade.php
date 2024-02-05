@@ -12,7 +12,11 @@
 <body>
     <x-header></x-header>
     <div class="container">
+        @if ($video->limit == 2)
+        <h1>Данный видеоролик недоступен</h1>    
+        @else
         <video width="100%" class="mt-3" controls src="/storage/video/{{$video->file_name}}"></video>
+        @endif
         <h2>{{$video->title}}</h2>
         <p>{{$video->description}}</p>
         @auth
@@ -25,7 +29,10 @@
             <span id="dislikes">{{$dislikes}}</span>
         </div>
         @endauth
-        <p>{{$video->created_at}}</p>
+        @php
+            $time = $video->created_at->format('d-m-Y H:m')
+        @endphp
+        <p>{{$time}}</p>
         <h2>Комментарии:</h2>
         @auth
         <form method="POST" action="/comment_create">
@@ -37,9 +44,12 @@
         @endauth
         @forelse ($comment as $comments)
             <div class="comment">
+                @php
+                    $date = $comments->created_at->format('d-m-Y H:m')
+                @endphp
                 <h5>{{$comments->user_com->name}}</h5>
                 <p>{{$comments->text}}</p>
-                <p>{{$comments->created_at}}</p>
+                <p>{{$date}}</p>
             </div>
         @empty
             <h5>Нет комментариев</h5>

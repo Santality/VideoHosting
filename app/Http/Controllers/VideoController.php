@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class VideoController extends Controller
 {
     public function index(){
-        $videos = Video::where('limit', 1)->orderBy('created_at', 'DESC')->paginate(2);
+        $videos = Video::where('limit', 1)->orderBy('created_at', 'DESC')->limit(10)->get();
         return view('index', ['videos' => $videos]);
     }
 
@@ -62,6 +62,7 @@ class VideoController extends Controller
         if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
             Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
             if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
                 return redirect()->back();
             }else{
                 Like::create([
@@ -72,6 +73,7 @@ class VideoController extends Controller
             }
         }else{
             if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
                 return redirect()->back();
             }else{
                 Like::create([
@@ -87,6 +89,7 @@ class VideoController extends Controller
         if(Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
             Like::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
             if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
                 return redirect()->back();
             }else{
                 Dislike::create([
@@ -97,6 +100,7 @@ class VideoController extends Controller
             }
         }else{
             if(Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->exists()){
+                Dislike::where([['id_user', '=', Auth::user()->id],['id_video', '=', $id]])->delete();
                 return redirect()->back();
             }else{
                 Dislike::create([

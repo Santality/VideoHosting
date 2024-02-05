@@ -29,15 +29,18 @@
             </thead>
             <tbody>
                 @forelse ($data as $item)
+                @php
+                    $time = $item->created_at->format('d-m-Y H:m')
+                @endphp
                 <tr>
                     <td><a href="/video/{{$item->id}}"><img class="img-prof" src="/storage/cover/{{$item->cover}}" alt="{{$item->cover}}"></a></td>
                     <td>{{$item->title}}</td>
                     <td>{{$item->description}}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$item->likes->count()}}</td>
+                    <td>{{$item->dislikes->count()}}</td>
                     <td>{{$item->category_vid->title_category}}</td>
                     <td>{{$item->limit_vid->title_limit}}</td>
-                    <td>{{$item->created_at}}</td>
+                    <td>{{$time}}</td>
                 </tr>
                 @empty
                     <td>У вас пока нет видеороликов</td>
