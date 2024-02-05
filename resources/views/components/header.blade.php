@@ -15,6 +15,11 @@
           </li>
           @endguest
           @auth
+          @if (Auth::user()->id_role == 1)
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Панель администратора</a>
+          </li>
+          @endif
           <li class="nav-item">
             <a class="nav-link" href="/profile">Мои видеоролики</a>
           </li>

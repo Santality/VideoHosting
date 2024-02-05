@@ -12,4 +12,11 @@ class Limit extends Model
     protected $fillable = [
         'title_limit',
     ];
+
+    public function video()
+    {
+        return $this->hasMany(Video::class, 'limit');
+    }
+
+    public $timestamps = false;
 }

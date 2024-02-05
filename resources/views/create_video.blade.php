@@ -18,23 +18,23 @@
             @csrf
             <div class="mb-3">
               <label for="InputTitle" class="form-label">Название</label>
-              <input type="text" class="form-control" id="InputTitle" name="title">
+              <input type="text" class="form-control" id="InputTitle" name="title" required>
             </div>
             <div class="mb-3">
               <label for="InputDescription" class="form-label">Описание</label>
-              <input type="text" class="form-control" id="InputDescription" name="description">
+              <input type="text" class="form-control" id="InputDescription" name="description" required>
             </div>
             <div class="mb-3">
                 <label for="InputFile" class="form-label">Файл</label>
-                <input type="file" class="form-control" id="InputFile" name="file">
+                <input type="file" class="form-control" id="InputFile" name="file" required>
             </div>
             <div class="mb-3">
                 <label for="InputCover" class="form-label">Превью</label>
-                <input type="file" class="form-control" id="InputCover" name="cover">
+                <input type="file" class="form-control" id="InputCover" name="cover" required>
             </div>
             <div class="mb-3">
                 <label for="InputCategory" class="form-label">Категория</label>
-                <select id="InputCategory" class="form-select" name="category">
+                <select id="InputCategory" class="form-select" name="category" required>
                     <option selected>Выберите категорию</option>
                     @foreach ($data as $cat)
                         <option value="{{$cat->id}}">{{$cat->title_category}}</option>

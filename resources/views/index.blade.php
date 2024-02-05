@@ -13,7 +13,24 @@
     <x-header></x-header>
     <div class="container">
         <h2>Добро пожаловать!</h2>
-
+        <div class="row g-3">
+            @forelse ($videos as $video)
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <a class="link-video" href="/video/{{$video->id}}">
+                            <img src="/storage/cover/{{$video->cover}}" class="card-img-top img-card-vid" alt="{{$video->cover}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$video->title}}</h5>
+                                <p class="card-text">{{$video->created_at}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <h2>Тут ничего нет...</h2>
+            @endforelse
+        </div>
+        {{ $videos->withQueryString()->links('pagination::bootstrap-5') }}
     </div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [VideoController::class, 'index']);
 
 Route::get('/reg', function () {
     return view('reg');
@@ -33,12 +32,20 @@ Route::get('/logout', [UserController::class, 'logout']);
 
 Route::post('/authentication', [UserController::class, 'signin']);
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+Route::get('/admin', [AdminController::class, 'admin']);
 
 Route::get('/profile', [UserController::class, 'profile']);
 
 Route::get('/createPage', [VideoController::class, 'createPage']);
 
 Route::post('/create', [VideoController::class, 'create']);
+
+Route::get('/video/{id}', [VideoController::class, 'video']);
+
+Route::post('/comment_create', [VideoController::class, 'comment']);
+
+Route::get('/like/{id}', [VideoController::class, 'like']);
+
+Route::get('/dislike/{id}', [VideoController::class, 'dislike']);
+
+Route::post('/limit', [AdminController::class, 'limit']);

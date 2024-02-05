@@ -17,11 +17,11 @@
             @csrf
             <div class="mb-3">
                 <label for="InputEmail" class="form-label">Почта</label>
-                <input type="email" class="form-control" id="InputEmail" name="email">
+                <input type="text" class="form-control" id="InputEmail" name="email" required>
             </div>
             <div class="mb-3">
               <label for="InputPassword" class="form-label">Пароль</label>
-              <input type="password" class="form-control" id="InputPassword" name="password">
+              <input type="password" class="form-control" id="InputPassword" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary">Войти</button>
         </form>

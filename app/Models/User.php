@@ -24,6 +24,11 @@ class User extends Authenticatable
         'id_role',
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

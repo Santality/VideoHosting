@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->references('id')->on('users');
             $table->foreignId('id_video')->references('id')->on('videos');
-            $table->timestamps();
         });
     }
 

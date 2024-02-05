@@ -13,4 +13,6 @@ class Like extends Model
         'id_user',
         'id_video'
     ];
+
+    public $timestamps = false;
 }

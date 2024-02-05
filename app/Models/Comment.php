@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dislike extends Model
+class Comment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_user',
-        'id_video'
+        'user',
+        'text',
+        'video',
     ];
 
-    public $timestamps = false;
+    public function user_com()
+    {
+        return $this->belongsTo(User::class, 'user');
+    }
 }

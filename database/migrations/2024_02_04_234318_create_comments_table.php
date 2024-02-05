@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('file_name');
-            $table->string('cover');
-            $table->foreignId('category')->references('id')->on('categories');
-            $table->foreignId('limit')->references('id')->on('limits');
             $table->foreignId('user')->references('id')->on('users');
+            $table->string('text');
+            $table->foreignId('video')->references('id')->on('videos');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('comments');
     }
 };

@@ -15,6 +15,17 @@ class Video extends Model
         'file_name',
         'cover',
         'category',
+        'user',
         'limit',
     ];
+
+    public function category_vid()
+    {
+        return $this->belongsTo(Category::class, 'category');
+    }
+
+    public function limit_vid()
+    {
+        return $this->belongsTo(Limit::class, 'limit');
+    }
 }

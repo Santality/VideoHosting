@@ -1,4 +1,24 @@
-.logo-bigs{
-    margin: 0 auto;
-    width: 50%;
+.img-prof{
+    width: 320px;
+    height: 180px;
+    object-fit: cover;
+}
+.link-video{
+    text-decoration: none;
+    color: #000;
+}
+.img-card-vid{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.comment{
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.comment p{
+    margin-bottom: 3px;
 }

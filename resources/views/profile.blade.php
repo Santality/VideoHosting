@@ -17,21 +17,27 @@
         <table class="table">
             <thead>
               <tr>
+                <th scope="col">Превью</th>
                 <th scope="col">Название</th>
                 <th scope="col">Описание</th>
-                <th scope="col">Превью</th>
+                <th scope="col">Лайки</th>
+                <th scope="col">Дизлайки</th>
                 <th scope="col">Категория</th>
+                <th scope="col">Ограничение</th>
                 <th scope="col">Дата загрузки</th>
               </tr>
             </thead>
             <tbody>
-                @forelse ($collection as $item)
+                @forelse ($data as $item)
                 <tr>
+                    <td><a href="/video/{{$item->id}}"><img class="img-prof" src="/storage/cover/{{$item->cover}}" alt="{{$item->cover}}"></a></td>
+                    <td>{{$item->title}}</td>
+                    <td>{{$item->description}}</td>
                     <td></td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    <td></td>
+                    <td>{{$item->category_vid->title_category}}</td>
+                    <td>{{$item->limit_vid->title_limit}}</td>
+                    <td>{{$item->created_at}}</td>
                 </tr>
                 @empty
                     <td>У вас пока нет видеороликов</td>
@@ -39,9 +45,13 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 @endforelse
             </tbody>
         </table>
+        {{ $data->withQueryString()->links('pagination::bootstrap-5') }}
     </div>
 </body>
 </html>

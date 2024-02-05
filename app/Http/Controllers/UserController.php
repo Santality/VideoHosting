@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dislike;
+use App\Models\Like;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -42,7 +44,7 @@ class UserController extends Controller
     }
 
     public function profile(){
-        $data = Video::with('category')->get();
+        $data = Video::with('category_vid', 'limit_vid')->where('user', Auth::user()->id)->paginate(2);
         return view('profile', ['data' => $data]);
     }
 }
